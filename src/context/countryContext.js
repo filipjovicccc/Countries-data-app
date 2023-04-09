@@ -1,6 +1,7 @@
+import {createContext} from "react"
 
-export const countryContext = ({
-     countries: [],
-     setCountries: ()=>{}
+export const CountryContext = createContext({
+    countries: [],
+    setCountries: ()=>{}
 
 })

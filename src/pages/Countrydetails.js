@@ -1,6 +1,17 @@
 import React from 'react'
+import { useContext } from 'react'
+import { CountryContext } from '../context/CountryContext'
+import { useParams } from 'react-router-dom'
 
-function Countrydetails() {
+function CountryDetails() {
+  
+  const {countries} = useContext(CountryContext)
+
+  const {id} = useParams()
+   
+
+  const findCountry = countries.find((country) => id === country.idd.suffixes)
+  console.log(findCountry)
   return (
     <div>
       
@@ -8,4 +19,4 @@ function Countrydetails() {
   )
 }
 
-export default Countrydetails
+export default CountryDetails

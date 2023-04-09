@@ -1,12 +1,19 @@
 import React from "react"
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
+
+
 const Countrys = ({country}) => {
+
+
 
    return <Wrapp>
 
          <h3>{country.name.common}</h3>
-
+         <h3>{country.idd.suffixes}</h3>
          <img  src={country.flags.png} alt="contrys"/>
+
+          <Link to={`/CountryDetails${country.idd.suffixes}`} >Details</Link>
 
           </Wrapp>
 
@@ -14,10 +21,13 @@ const Countrys = ({country}) => {
 
 const Wrapp = styled.div`
    
-   width: 15em;
-   height: 15em;
+   width: 17em;
+   height: 17em;
    border: 1px solid black;
- 
+   
+   img {
+      height: 8em;
+   }
 
 
 `
