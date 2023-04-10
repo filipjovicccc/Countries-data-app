@@ -15,12 +15,18 @@ useEffect(() => {
       return res.json();
     }).then((data) => {
       setCountries(data)
-      console.log(data);
+    
     });
   }, []);
 
+  const addIdToCountry = countries.map((country, index) =>{
+
+    return {...country, id: index+1}
+  })
+  
+
   const value = {
-    countries, setCountries
+   addIdToCountry, setCountries
   }
   return (
     <div>
@@ -30,7 +36,7 @@ useEffect(() => {
     <Routes>
   
             <Route path="/" element={<MainCountries />} />
-            <Route path="/Countrydetails" element={<CountryDetails/>} />
+            <Route path="/Countrydetails/:id" element={<CountryDetails/>} />
         
         </Routes>
     </Router>

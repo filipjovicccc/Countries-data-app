@@ -5,15 +5,13 @@ import { Link } from "react-router-dom";
 
 const Countrys = ({country}) => {
 
-
-
    return <Wrapp>
 
          <h3>{country.name.common}</h3>
-         <h3>{country.idd.suffixes}</h3>
+         <h3>{country.id}</h3>
          <img  src={country.flags.png} alt="contrys"/>
 
-          <Link to={`/CountryDetails${country.idd.suffixes}`} >Details</Link>
+         <Link to={`/Countrydetails/${country.id}`}>Details</Link>
 
           </Wrapp>
 
