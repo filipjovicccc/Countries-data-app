@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import { CountryContext } from "./context/CountryContext";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import MainCountries from "./pages/MainCountries";
-import CountryDetails from "./pages/CountryDetails"
+import { Outlet } from "react-router-dom"
 
 
 function App() {
@@ -32,14 +30,9 @@ useEffect(() => {
     <div>
 
     <CountryContext.Provider value={value}>
-    <Router>
-    <Routes>
-  
-            <Route path="/" element={<MainCountries />} />
-            <Route path="/Countrydetails/:id" element={<CountryDetails/>} />
-        
-        </Routes>
-    </Router>
+
+        <Outlet />
+
     </CountryContext.Provider>
        
     </div>
