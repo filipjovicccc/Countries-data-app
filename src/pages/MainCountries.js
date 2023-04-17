@@ -5,13 +5,13 @@ import { CountryContext } from '../context/CountryContext'
 
 function MainCountries() {
    
-    const {addIdToCountry} = useContext(CountryContext)
+    const {countries} = useContext(CountryContext)
 
   return (
     <div className="App">
-        {addIdToCountry.map((country) => {
+        {countries.length && countries.map((country) => {
       
-      return <Countrys key={country.id} country={country}
+      return <Countrys key={country.name.common} country={country}
            />
  
      })}

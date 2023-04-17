@@ -10,8 +10,9 @@ const Countrys = ({country}) => {
             <img src={country.flags.png} alt="contrys"/>
          </ImgWrapper>
          <Title>{country.name.common}</Title>
-         <Id>{country.id}</Id>
+         
          <DetailsButton to={`/countryDetails/${country.id}`}>Details</DetailsButton>
+
       </Wrapp>
    )
 }
@@ -27,6 +28,7 @@ const Wrapp = styled.div`
    flex-direction: column;
    align-items: center;
    color: white;
+  
 `
 
 const ImgWrapper = styled.div`
@@ -35,12 +37,20 @@ const ImgWrapper = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
+   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), -2px -2px 10px rgba(0, 0, 0, 0.2), 0px 15px 20px rgba(0, 0, 0, 0.1);
+
+   &:hover{
+     
+      transform: scale(1.05);
+
+   }
 
    img {
       height: 100%;
       object-fit: cover;
    }
 `
+ 
 
 const Title = styled.h3`
    font-size: 1.2rem;
@@ -58,7 +68,7 @@ const DetailsButton = styled(Link)`
    color: white;
    border: none;
    border-radius: 5px;
-   padding: 0.5em 1em;
+   padding: 0.5em 2.5em;
    font-size: 1rem;
    text-align: center;
    text-decoration: none;
@@ -66,7 +76,7 @@ const DetailsButton = styled(Link)`
    transition: background-color 0.2s ease;
 
    &:hover {
-      background-color: #0069d9;
+      background-color:orange;
    }
 
    @media (max-width: 768px) {

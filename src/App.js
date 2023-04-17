@@ -1,37 +1,39 @@
 import { useEffect, useState } from "react"
 import { CountryContext } from "./context/CountryContext";
 import { Outlet } from "react-router-dom"
-
+import { v4 as uuidv4 } from 'uuid';
+import Navbar from "./components/Navbar";
 
 function App() {
   
   const [countries, setCountries] = useState([])
   
-  const url ="https://restcountries.com/v3.1/all"
+  const url =" https://restcountries.com/v3.1/all"
 useEffect(() => {
     fetch(url).then((res) => {
       return res.json();
     }).then((data) => {
-      setCountries(data)
+     ;
+
+     console.log(data)
+     const countriesWithId = data.map((item) => {
+      return {
+        ...item,
+        id: uuidv4()
+      };
+    });
+      setCountries(countriesWithId)
     
     });
   }, []);
 
-  const addIdToCountry = countries.map((country, index) =>{
-
-    return {...country, id: index+1}
-  })
-  
-
-  const value = {
-   addIdToCountry, setCountries
-  }
   return (
     <div>
 
-    <CountryContext.Provider value={value}>
-
-        <Outlet />
+    <CountryContext.Provider value={{countries, setCountries}}>
+    
+    <Navbar />
+    <Outlet />
 
     </CountryContext.Provider>
        
