@@ -5,3 +5,9 @@ export const CountryContext = createContext({
     setCountries: ()=>{}
 
 })
+
+export const FilterCountryContext = createContext({
+     
+    filteredCountries: [],
+    setFilteredCountries: ()=>{}
+})
